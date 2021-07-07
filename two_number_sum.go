@@ -31,6 +31,7 @@ func twoNumberSumBruteForce(array []int, target int) []int {
 // O(n) time | O(n) space
 func twoNumberSumHashTable(array []int, target int) []int {
 	//Implementing a hashtable here instead of two foor loops keeps this solutions at constant time. 
+	//Because we are adding each value to a table the space complexity increases from O(1) to O(n)
 	secondNum := map[int]bool{}
 	for index := 0; index < len(array); index++ {
 		pairNumber :=  target - array[index]
