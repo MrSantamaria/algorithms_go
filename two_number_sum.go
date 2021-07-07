@@ -7,10 +7,11 @@ import "fmt"
 func main() {
 	test_array := []int{3, 5, -4, 8, 11, 1, -1, 6}
 	test_sum := 10
-	fmt.Println(twoNumberSum(test_array, test_sum))
+	fmt.Println(twoNumberSumBruteForce(test_array, test_sum))
+	fmt.Println(twoNumberSumHashTable(test_array, test_sum))
 }
 
-func twoNumberSum(array []int, target int) []int {
+func twoNumberSumBruteForce(array []int, target int) []int {
 	for index := 0; index < len(array)-1; index++ {
 		firstNum := array[index]
 		//The numbers are not allowed to repeat therefor we add 1 to every index of the
@@ -24,5 +25,20 @@ func twoNumberSum(array []int, target int) []int {
 		}
 	}
 	//The purpose of this array is the negative scenario that no numbers matched the target.
+	return []int{}
+}
+
+// O(n) time | O(n) space
+func twoNumberSumHashTable(array []int, target int) []int {
+	//Implementing a hashtable here instead of two foor loops keeps this solutions at constant time. 
+	secondNum := map[int]bool{}
+	for index := 0; index < len(array); index++ {
+		pairNumber :=  target - array[index]
+		if _, ok := secondNum[pairNumber]; ok {
+			return []int{array[index], pairNumber}
+		} else {
+			secondNum[array[index]] = true
+		}
+	}
 	return []int{}
 }
