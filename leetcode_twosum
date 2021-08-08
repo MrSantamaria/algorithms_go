@@ -1,0 +1,21 @@
+package main
+
+import "fmt"
+
+func main() {
+	fmt.Print(twoSum([]int{2,11,7,15}, 9))
+}
+
+//https://leetcode.com/problems/two-sum/
+
+func twoSum(nums []int, target int) []int {
+    secondNum := map[int]int{}
+    for firstIndex := 0; firstIndex < len(nums); firstIndex++ {
+        if _, exist := secondNum[target - nums[firstIndex]]; exist {
+            return []int{firstIndex, secondNum[target - nums[firstIndex]]}
+        } else {
+            secondNum[nums[firstIndex]] = firstIndex            
+        }
+    }
+    return []int{}
+}
