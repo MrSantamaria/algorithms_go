@@ -5,6 +5,8 @@ import (
 )
 
 func main() {
+	//This solution runs in O(N+N) since we do iterate through the window a second time to check for a smaller window. 
+	//Though O(N+N) is O(2N) which we default to express as O(N)
 	fmt.Printf("Smallest subarray length: %d\n",  smallest_subarray_with_given_sum([]int{2, 1, 5, 2, 3, 2}, 7))
 }
 
