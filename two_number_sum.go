@@ -43,3 +43,23 @@ func twoNumberSumHashTable(array []int, target int) []int {
 	}
 	return []int{}
 }
+
+func twoNumberSumPointers(array []int, target int) []int{
+	pointerOne, pointerTwo := 0, len(array)-1
+	resultArray := []int{}
+	for len(resultArray) < 1 {
+		sum := array[pointerOne] + array[pointerTwo]
+		if pointerOne >= pointerTwo {
+			break
+		} else if sum < target {
+			pointerOne += 1
+		} else if sum > target {
+			pointerTwo -= 1
+		} else if sum == target {
+			resultArray = append(resultArray, pointerOne)
+			resultArray = append(resultArray, pointerTwo)
+			return resultArray
+		}
+	}
+	return resultArray
+}
