@@ -44,6 +44,7 @@ func twoNumberSumHashTable(array []int, target int) []int {
 	return []int{}
 }
 
+// This will only work if the array is in order*
 func twoNumberSumPointers(array []int, target int) []int{
 	pointerOne, pointerTwo := 0, len(array)-1
 	resultArray := []int{}
